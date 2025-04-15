@@ -6,6 +6,30 @@ import { Text, TextInput, View, StyleSheet } from 'react-native';
 
 // Functional component named MyApp
 export default function MyApp() {
+  //use State hook to store user input
+  //this updates the text
+  const[text, setText] = useState('');
+
+  return(
+    <View style={styles.container}>
+
+      {/*Heading Text*/}
+      <Text style={styles.heading}>Hello, I am a student in CIS340!</Text>
+
+      <TextInput
+          style={styles.input}
+          placeholder="Type here..."//Placeholder text inside the input box
+          onChangeText={setText}
+          value={text}  
+      />
+      {/*Display entered text dynamically*/}
+      <Text style={styles.displayText}>
+        You typed {text}
+      </Text>
+
+    </View>
+
+  );
 
 }
 

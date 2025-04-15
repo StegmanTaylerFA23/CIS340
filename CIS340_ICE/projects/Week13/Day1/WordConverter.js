@@ -4,6 +4,34 @@ import { Text, TextInput, View, StyleSheet } from 'react-native';
 
 // Functional component named WordConvertor
 export default function WordConvertor() {
+
+  //State hook to store input text
+  const[text, setText] = useState('');
+
+  return(
+    <View style={styles.container}>
+
+      <Text style={styles.label}>Enter some text:</Text>
+
+      <TextInput
+
+      style={styles.input}
+      placeholder='Type something here...'
+      onChangeText={(text) => setText(text)}
+      value={text}
+      
+      />
+
+      <Text style={styles.output}>
+        {
+          // Split the text into words, replace every word with "*" and then joing them with spaces
+          text.trim().split(" ").map((word) => word ? '*' : ' ').join(' ') //filter out empty string
+        }
+      </Text>
+
+    </View>
+
+  )
 }
 
 // Styling using StyleSheet for clean, reusable styles
