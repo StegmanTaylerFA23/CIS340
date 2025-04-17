@@ -2,10 +2,50 @@
 import React from 'react';
 import { Text, View, FlatList, StyleSheet } from 'react-native';
 
-
+const US_STATE = [
+  {key: 'Alabama'},
+  {key: 'Colorado'},
+  {key: 'Delaware'},
+  {key: 'Washington'},
+  {key: 'Aladsbama'},
+  {key: 'Colsorado'},
+  {key: 'Deldaware'},
+  {key: 'Wasghington'},
+  {key: 'Alaqbama'},
+  {key: 'Coleorado'},
+  {key: 'Delawware'},
+  {key: 'Washirngton'},
+  {key: 'Alabtama'},
+  {key: 'Coloyrado'},
+  {key: 'Delawuare'},
+  {key: 'Washinigton'},
+  {key: 'Alabaoma'},
+  {key: 'Coloprado'},
+  {key: 'Delwadware'},
+  {key: 'Washifngton'}
+]
 
 // Define the functional component
 export default function StatesApp() {
+
+  return (
+
+    <View style={styles.container}>
+      <FlatList 
+        data={US_STATE}
+        keyExtractor={(item) => item.key}
+        
+        //render each item using text component
+        renderItem={({item}) =>(
+          <Text style={styles.itemText}>{item.key}</Text>
+        )}
+      />
+    </View>
+
+
+
+  )
+
 }
 
 // Create styles using StyleSheet (cleaner than inline styles)

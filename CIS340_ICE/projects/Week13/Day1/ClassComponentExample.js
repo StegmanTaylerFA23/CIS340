@@ -8,6 +8,16 @@ export default class StudentMessage extends Component {
     return (
       <View style={styles.container}>
         {/* Empty for now */}
+
+        <Text style={styles.text}>
+          Hello, I am here, a student in CIS340!
+        </Text>
+
+        <Text style={styles.text}>
+          I like using the class component
+        </Text>
+
+
       </View>
     );
   }
