@@ -11,6 +11,59 @@ import {
 
 // Main App component
 export default function App() {
+  const [taskInput, setTaskInput] = useState('');
+  const [taskList, setTaskList] = useState([]);
+
+  function addTask(){
+    if(taskInput.trim()){
+      // create new array with existing tasks
+      const updatedList = [...taskList, taskInput];
+
+      // update the task list state
+      setTaskList(updatedList);
+      setTaskInput('');
+    }
+  }
+  
+  function deleteTask(indexToDelete){
+    // create copy of current task list
+    const updatedList = [...taskList];
+
+    // Removed the task
+    updatedList.splice(indexToDelete, 1);
+
+    // yodate the task list state
+    setTaskList(updatedList);
+  }
+
+  return(
+    <View style={styles.container}>
+      {/* Input field for entering a new task */}
+      <TextInput
+        style={styles.input}
+        placeholder='Enter a task'
+        value={taskInput}
+        onChangeText={setTaskInput}
+      />
+
+      {/* Button to add the task to the list */}
+      <Button title="Add Task" onPress={addTask}/>
+
+      {/* Display the list  */}
+      <FlatList
+        data={taskList}
+        keyExtractor={( item, index ) => index.toString()}
+
+        renderItem={({ item, index }) => (
+          <View style={styles.taskContainer}>
+            <Text style={styles.taskText}>{item}</Text>
+            <Button title="Delete" onPress={() => deleteTask(index)}/>
+          </View>
+        )}
+      />
+    </View>
+
+  );
 }
 
 // Styles used in the app
