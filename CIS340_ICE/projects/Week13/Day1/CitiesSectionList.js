@@ -19,7 +19,7 @@ export default function StatesApp() {
   const [loading, setLoading] = useState(true);
 
   // GitHub URL that points to a raw text file containing list of city names
-  const githubURL = "https://raw.githubusercontent.com/AnanthIylerKrishnan/CIS340/main/Cities.txt"
+  const githubURL = "https://raw.githubusercontent.com/AnanthIyerKrishnan/CIS340/main/Cities.txt"
 
   // Use effect runs once when the component first loads (similar to componentDidMount)
   useEffect( () => {
@@ -55,7 +55,7 @@ export default function StatesApp() {
           .sort()
           .map((letter) => ({
             title:letter,
-            date: groups[letter]
+            data: groups[letter]
           }));
 
         //Save the final grouped data into state
@@ -93,12 +93,12 @@ export default function StatesApp() {
         keyExtractor={(item, index) => index.toString()}
 
         // How each city name should be rendered
-        renderItem={({ item }) => {
+        renderItem={({ item }) => (
           <Text style={{ padding: 10, fontSize: 20}}>{item}</Text>
-        }}
+        )}
 
         // how each section (group header) should be rendered
-        renderSectionHeader={({sections}) => {
+        renderSectionHeader={({section}) => {
           <Text
           style={{
             padding: 5,
@@ -107,7 +107,7 @@ export default function StatesApp() {
             backgroundColor: "lightblue",
             color: "white"
           }}>
-            {sections.title}
+            {section.title}
 
           </Text>
         }}
