@@ -53,13 +53,13 @@ function HomeScreen({ route, navigation }) {
           <Text style={styles.cardButtonText}>Place Order</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('Offers')}>
-          <Text style={styles.cardButtonText}>Bakery Offers</Text>
+          <Text style={styles.cardButtonText}>Offers</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('Feedback')}>
-          <Text style={styles.cardButtonText}>Bakery Feedback</Text>
+          <Text style={styles.cardButtonText}>Feedback</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('Others')}>
-          <Text style={styles.cardButtonText}>Others</Text>
+          <Text style={styles.cardButtonText}>Others (CRUSH A GRAPE!)</Text>
         </TouchableOpacity>
       </View>
    
